@@ -1,0 +1,106 @@
+" Map Leader "
+map <Space> <Leader>
+
+" No Audio bells. Only visual ""
+set visualbells
+set noerrorbells
+
+" paste buffer is normal buffer on linux "
+set clipboard+=unnamed
+set clipboard+=ideaput
+
+" highlight search results "
+set hlsearch
+
+" searching starts immediately when typing "
+set incsearch
+
+" ignores case by default in search "
+set ignorecase
+
+" doesn't ignore case when UPPERCASE letters exist in search "
+set smartcase
+
+" keep 5 lines between cursor and edge of screen "
+set scrolloff=5
+
+" keep longer history "
+set history=1000
+
+" set line numbers "
+"set number hybrid
+
+" go back to former mode after refactoring "
+"set idearefactormode=keep
+
+" ---- Plugins ---- ""
+" Which-key "
+set which-key
+"set timeoutlen=5000
+set notimeout
+
+" Highlightedyank shows what was yanked
+set highlightedyank
+
+" -----------------
+
+" -------- Keymaps -------"
+
+nmap <Leader>s :source ~/.ideavimrc<CR>
+
+" Tabs group "
+" kill current tab "
+nmap <Leader>tx :action CloseEditor<CR>
+" Next tab
+nmap <leader>tn <action>(NextTab)
+" Previous tab
+nmap <leader>tp <action>(PreviousTab)
+
+" go to next / previous file or line "
+nnoremap <A-H> :action Back<CR>
+nnoremap <A-L> :action Forward<CR>
+
+" Git group
+map <leader>gh <Action>(ActivateVersionControlToolWindow)
+map <leader>gd <Action>(Vcs.Diff)
+" Git Pull
+nmap <leader>gp <action>(Git.Pull)
+" Git Fetch
+nmap <leader>gf <action>(Git.Fetch)
+" Git Commit
+nmap <leader>gc <action>(CheckinProject)
+" Git Annotate
+nmap <leader>ga <action>(Annotate)
+
+" Code actions "
+nnoremap <leader>cr :action Refactorings.QuickListPopupAction<CR>
+nmap <leader>ci <action>(Generate)
+nmap <leader>cn <action>(RenameElement)
+nmap <leader>cb <action>(ToggleLineBreakpoint)
+nmap <leader>cd <action>(ShowIntentionActions)
+
+" Find group "
+nmap <leader>fc <action>(GotoClass)
+nmap <leader>ff <action>(GotoFile)
+nmap <leader>fe <action>(RecentFiles)
+
+" Run Group "
+nmap <leader>rr <action>(ChooseRunConfiguration)
+nmap <leader>rd <action>(ChooseDebugConfiguration)
+nmap <leader>rc <action>(RunClass)
+
+" UI Group "
+nmap <leader>uf <action>(ToggleFullScreen)
+nmap <leader>ud <action>(ToggleDistractionFreeMode)
+nmap <leader>uz <action>(ToggleZenMode)
+
+" easy code splits "
+nnoremap <C-0> :action MoveTabRight<CR>
+nnoremap <C--> :action MoveTabDown<CR>
+nnoremap <C-=> :action Unsplit<CR>
+nnoremap <C-m> :action MoveEditorToOppositeTabGroup<CR>
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+" ------------------------------------ "
