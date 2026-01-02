@@ -36,7 +36,8 @@ set history=1000
 " ---- Plugins ---- ""
 " Which-key "
 set which-key
-"set timeoutlen=5000
+"let g:WhichKey_ShowVimActions = "true"
+" set timeoutlen=1000
 set notimeout
 
 " Highlightedyank shows what was yanked
@@ -45,62 +46,147 @@ set highlightedyank
 " -----------------
 
 " -------- Keymaps -------"
+" Vim Group "
+let g:WhichKeyDesc_vim = "<leader>v Vim"
+nmap <Leader>vs :source ~/.ideavimrc<CR>
+let g:WhichKeyDesc_vim_source_config = "<leader>vs Source Config"
+nmap <leader>va <action>(VimFindActionIdAction)
+let g:WhichKeyDesc_vim_toggle_vim_find_action_id = "<leader>va Toggle Vim Find Action Id"
 
-nmap <Leader>s :source ~/.ideavimrc<CR>
-
-" Tabs group "
+" Window group "
+let g:WhichKeyDesc_windows = "<leader>w Windows"
 " kill current tab "
-nmap <Leader>tx :action CloseEditor<CR>
+nmap <leader>wx :action CloseEditor<CR>
+let g:WhichKeyDesc_windows_close = "<leader>wx Close current window/tab"
 " Next tab
-nmap <leader>tn <action>(NextTab)
+nmap <leader>wl <action>(NextTab)
+let g:WhichKeyDesc_windows_next = "<leader>wl Next window/tab"
 " Previous tab
-nmap <leader>tp <action>(PreviousTab)
+nmap <leader>wh <action>(PreviousTab)
+let g:WhichKeyDesc_windows_previous = "<leader>wh Previous window/tab"
+" Pin tab
+nmap <leader>wp <action>(PinActiveEditorTab)
+let g:WhichKeyDesc_windows_pin = "<leader>wp Toggle pin window/tab"
+" Split view vertical
+nnoremap <leader>w<Bar> :action MoveTabRight<CR>
+let g:WhichKeyDesc_windows_split_vertical = "<leader>w| Split window vertical"
+" Split view horizontal
+nnoremap <leader>w- :action MoveTabDown<CR>
+let g:WhichKeyDesc_windows_split_horizontal = "<leader>w- Split window horizontal"
+" Unsplit tab
+nnoremap <leader>wq :action Unsplit<CR>
+let g:WhichKeyDesc_windows_unsplit_window = "<leader>wq Unsplit window"
+" Move split tab
+nnoremap <leader>wm :action MoveEditorToOppositeTabGroup<CR>
+let g:WhichKeyDesc_windows_move_split = "<leader>wm Move split window"
 
 " go to next / previous file or line "
 nnoremap <A-H> :action Back<CR>
 nnoremap <A-L> :action Forward<CR>
 
 " Git group
+let g:WhichKeyDesc_git = "<leader>g Git"
+" Git show history
 map <leader>gh <Action>(ActivateVersionControlToolWindow)
-map <leader>gd <Action>(Vcs.Diff)
+let g:WhichKeyDesc_git_history = "<leader>gh Git history/log"
 " Git Pull
 nmap <leader>gp <action>(Git.Pull)
+let g:WhichKeyDesc_git_pull = "<leader>gp Git pull"
 " Git Fetch
 nmap <leader>gf <action>(Git.Fetch)
+let g:WhichKeyDesc_git_fetch = "<leader>gf Git fetch"
 " Git Commit
 nmap <leader>gc <action>(CheckinProject)
+let g:WhichKeyDesc_git_commit = "<leader>gc Git commit"
 " Git Annotate
 nmap <leader>ga <action>(Annotate)
+let g:WhichKeyDesc_git_annotate = "<leader>ga Git annotate"
 
 " Code actions "
+let g:WhichKeyDesc_code = "<leader>c Code"
+" Refactor code
 nnoremap <leader>cr :action Refactorings.QuickListPopupAction<CR>
+vnoremap <leader>cr :action Refactorings.QuickListPopupAction<CR>
+let g:WhichKeyDesc_code_refactor = "<leader>cr Code refactor"
+" Generate code
 nmap <leader>ci <action>(Generate)
+let g:WhichKeyDesc_code_generate = "<leader>ci Code generate"
+" Rename code
 nmap <leader>cn <action>(RenameElement)
+let g:WhichKeyDesc_code_rename = "<leader>cn Code rename"
+" Toggle breakpoint
 nmap <leader>cb <action>(ToggleLineBreakpoint)
+let g:WhichKeyDesc_code_toggle_breakpoint = "<leader>cb Toggle breakpoint"
+" Show code actions
 nmap <leader>cd <action>(ShowIntentionActions)
+let g:WhichKeyDesc_code_show_code_actions = "<leader>cd Show code actions"
+" Code Hierarchy group "
+let g:WhichKeyDesc_code_hierarchy = "<leader>ch Hierarchy"
+" Show type hierarchy
+nmap <leader>cht <action>(TypeHierarchy)
+let g:WhichKeyDesc_hierarchy_type = "<leader>cht Show type hierarchy"
+" Show method hierarchy
+nmap <leader>chm <action>(MethodHierarchy)
+let g:WhichKeyDesc_hierarchy_method = "<leader>chm Show method hierarchy"
+" Show call hierarchy
+nmap <leader>chc <action>(CallHierarchy)
+let g:WhichKeyDesc_hierarchy_type = "<leader>chc Show call hierarchy"
 
 " Find group "
+let g:WhichKeyDesc_find = "<leader>f Find"
 nmap <leader>fc <action>(GotoClass)
+let g:WhichKeyDesc_find_class = "<leader>fc Find class"
 nmap <leader>ff <action>(GotoFile)
+let g:WhichKeyDesc_find_file = "<leader>ff Find file"
 nmap <leader>fe <action>(RecentFiles)
+let g:WhichKeyDesc_find_recent = "<leader>fe Find recent files"
+nmap <leader>f/ <action>(Find)
+vmap <leader>f/ <action>(Find)
+let g:WhichKeyDesc_find_in_file = "<leader>f/ Find in file"
+nmap <leader>fr <action>(Replace)
+vmap <leader>fr <action>(Replace)
+let g:WhichKeyDesc_replace_in_file = "<leader>fr Replace in file"
 
 " Run Group "
-nmap <leader>rr <action>(ChooseRunConfiguration)
-nmap <leader>rd <action>(ChooseDebugConfiguration)
+let g:WhichKeyDesc_run = "<leader>r Run/Debug"
+nmap <leader>rC <action>(ChooseRunConfiguration)
+let g:WhichKeyDesc_run_configuration = "<leader>rC Show run configurations"
+nmap <leader>rD <action>(ChooseDebugConfiguration)
+let g:WhichKeyDesc_run_debug_configuration = "<leader>rD Show debug run configurations"
 nmap <leader>rc <action>(RunClass)
+let g:WhichKeyDesc_run_class = "<leader>rc Run Class/Method"
+nmap <leader>rd <action>(DebugClass)
+let g:WhichKeyDesc_run_debug_class = "<leader>rd Debug Class/Method"
 
 " UI Group "
+let g:WhichKeyDesc_ui = "<leader>u UI"
 nmap <leader>uf <action>(ToggleFullScreen)
+let g:WhichKeyDesc_ui_toggle_fullscreen = "<leader>uf Toggle Fullscreen"
 nmap <leader>ud <action>(ToggleDistractionFreeMode)
+let g:WhichKeyDesc_ui_toggle_distraction_free = "<leader>ud Toggle Distraction free"
 nmap <leader>uz <action>(ToggleZenMode)
+let g:WhichKeyDesc_ui_toggle_zen = "<leader>uz Toggle Zen Mode"
 
 " easy code splits "
-nnoremap <C-0> :action MoveTabRight<CR>
-nnoremap <C--> :action MoveTabDown<CR>
-nnoremap <C-=> :action Unsplit<CR>
-nnoremap <C-m> :action MoveEditorToOppositeTabGroup<CR>
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 " ------------------------------------ "
+
+" Easy yank and select "
+nnoremap Vaf :action MethodUp<cr>V]M
+nnoremap vaf :action MethodUp<cr>V]M
+
+nnoremap Vif :action MethodUp<cr>jV]Mk
+nnoremap vif :action MethodUp<cr>jV]Mk
+
+nnoremap daf :action MethodUp<cr>V]Md
+nnoremap dif :action MethodUp<cr>jV]Mkd
+
+nnoremap yaf :action MethodUp<cr>V]My
+nnoremap yif :action MethodUp<cr>jV]Mky
+
+nnoremap caf :action MethodUp<cr>V]Mc
+nnoremap cif :action MethodUp<cr>jV]Mkc
+
