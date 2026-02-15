@@ -52,9 +52,6 @@ style = { shape = "Block", blinking = "On" }
 blink_interval = 500
 unfocused_hollow = true
 
-# Key repeat settings are not directly supported in Alacritty's TOML config.
-# You must set these via your system/terminal emulator or X11 (see below).
-
 [[keyboard.bindings]]
 key = "V"
 mods = "Control|Shift"
@@ -64,11 +61,6 @@ action = "Paste"
 key = "C"
 mods = "Control|Shift"
 action = "Copy"
-
-[[keyboard.bindings]]
-key = "Insert"
-mods = "Shift"
-action = "PasteSelection"
 
 [[keyboard.bindings]]
 key = "PageUp"
@@ -101,29 +93,9 @@ mods = "Control|Shift"
 action = "ScrollLineDown"
 
 [[keyboard.bindings]]
-key = "N"
-mods = "Super"
-action = "SpawnNewInstance"
-
-[[keyboard.bindings]]
 key = "W"
 mods = "Super"
 action = "Quit"
-
-[[keyboard.bindings]]
-key = "Equals"
-mods = "Control|Shift"
-action = "IncreaseFontSize"
-
-[[keyboard.bindings]]
-key = "Minus"
-mods = "Control|Shift"
-action = "DecreaseFontSize"
-
-[[keyboard.bindings]]
-key = "Key0"
-mods = "Control|Shift"
-action = "ResetFontSize"
 
 [[keyboard.bindings]]
 key = "F11"
