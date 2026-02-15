@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-xterm-color | *-256color | xterm-kitty) color_prompt=yes ;;
+    xterm-color|*-256color|xterm-kitty|alacritty) color_prompt=yes ;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -119,3 +119,6 @@ export DBX_CONTAINER_MANAGER=podman
 
 # Sets the default editor to be used by terminal applications when needing an editor
 export EDITOR=vim
+
+# Sets timezone to Danish timezone
+export TZ=Europe/Copenhagen
