@@ -1,0 +1,19 @@
+{
+  "name": "personal-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "markdown",
+        "path": "./writting.json"
+      },
+      {
+        "language": "yaml",
+        "path": "./yaml.json"
+      },
+      {
+        "language": "yaml.ansible",
+        "path": "./yaml.json"
+      }
+    ]
+  }
+}

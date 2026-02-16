@@ -1,0 +1,10 @@
+{
+  "scene": {
+    "prefix": "scene",
+    "body": "<p align=\"center\">***</p>"
+  },
+  "todo": {
+    "prefix": "td",
+    "body": "**TODO:** "
+  }
+}
