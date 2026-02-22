@@ -1,4 +1,4 @@
-local spell = require("config.spell")
+local spell = require("config.spelling")
 
 return {
   -- Improved ltex integration, supporting code actions
